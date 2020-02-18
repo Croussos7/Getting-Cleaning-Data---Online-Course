@@ -1,0 +1,7 @@
+## CODEBOOK FOR EXPLANATION OF VARIABLES, DATA, TRANSFORMATIONS AND CLEANING
+
+**DATA**
+
+The following data have been used from :
+
+1)
