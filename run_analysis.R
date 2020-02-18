@@ -76,8 +76,6 @@ tidyData$Activity<-as.factor(tidyData$Activity)
 library(reshape)
 library(reshape2)
 
-View(names(tidyData))
-
 MeltedDataset <- melt(tidyData, id = c("Subject", "Activity"))
 NewDataset<- dcast(MeltedDataset, Subject + Activity ~ variable, mean)
 
