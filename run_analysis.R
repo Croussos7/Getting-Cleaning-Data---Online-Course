@@ -8,7 +8,6 @@ url1<- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR
 download<-download.file(url1,destfile = "./data/UCI.zip")
 unzip("data/UCI.zip")
 
-
 # Load the all the files into different objects
 
 trainDataset<- read.table("UCI HAR Dataset/train/X_train.txt")
@@ -29,12 +28,10 @@ Features$V2 <- as.character(Features$V2)
 Features$V2 <-gsub('meanFreq', 'MeanFreq', Features$V2)
 index<- grep(".*mean()|.*std().*", Features$V2)
 
-
 # Subset testDataset and trainDataset according to the feautures requested
 
 train<-trainDataset[,index]
 test<- testDataset[,index]
-
 
 #Bind everything together
 
@@ -42,13 +39,11 @@ train <- cbind(trainSubjects, trainActivities, train)
 test <- cbind(testSubjects, testActivities, test)
 tidyData<- rbind(train, test)
 
-
 #Properly name the variables
 FeautureNames<- Features[index,2]
 FeautureNames <- gsub('mean', 'MEAN', FeautureNames)
 FeautureNames <- gsub('std', 'STD', FeautureNames)
 FeautureNames <- gsub('[()]', '', FeautureNames)
-FeautureNames
 names(tidyData) <- c("Subject", "Activity",FeautureNames)
 
 #Load Activity Labels and transform to correct format
